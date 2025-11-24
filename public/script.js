@@ -19,6 +19,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const exampleImageBtn = document.getElementById('exampleImageBtn');
     const startVerifyingBtn = document.getElementById('startVerifyingBtn');
     const learnMoreBtn = document.getElementById('learnMoreBtn');
+    // --- Mobile Menu Logic ---
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    // Toggle menu open/close
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close menu when a link is clicked
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+
+    // Close menu if clicking outside of it
+    document.addEventListener('click', (e) => {
+        if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+            mobileMenu.classList.add('hidden');
+        }
+    });
 
     let loading = false;
 
