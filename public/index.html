@@ -1,416 +1,699 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>TruthLens - AI-Powered Content Verification Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <style>
-    /* NUCLEAR OVERFLOW FIX */
-    html, body {
+      /* NUCLEAR OVERFLOW FIX */
+      html,
+      body {
         width: 100%;
         max-width: 100%;
         overflow-x: hidden;
         position: relative;
-    }
-    
-    /* Ensure the hero section specifically doesn't leak */
-    #home {
+      }
+
+      /* Ensure the hero section specifically doesn't leak */
+      #home {
         width: 100vw; /* Use viewport width */
         max-width: 100%; /* Cap it at 100% */
         overflow: hidden; /* Clip everything inside */
-    }
-</style>
-</head>
-<body class="scroll-smooth overflow-x-hidden antialiased selection:bg-blue-500 selection:text-white">
-    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-200 transition-all duration-300" id="navbar">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      }
+    </style>
+  </head>
+  <body
+    class="scroll-smooth overflow-x-hidden antialiased selection:bg-blue-500 selection:text-white"
+  >
+    <nav
+      class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-200 transition-all duration-300"
+      id="navbar"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
-            <div class="flex items-center">
-                <div class="text-2xl font-bold">
-                    <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Truth</span>Lens
-                </div>
+          <div class="flex items-center">
+            <div class="text-2xl font-bold">
+              <span
+                class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+                >Truth</span
+              >Lens
             </div>
+          </div>
 
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
-                <a href="#features" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Features</a>
-                <a href="#verify" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Verify</a>
-                <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
-                <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
-            </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#home"
+              class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
+              >Home</a
+            >
+            <a
+              href="#features"
+              class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
+              >Features</a
+            >
+            <a
+              href="#verify"
+              class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
+              >Verify</a
+            >
+            <a
+              href="#about"
+              class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
+              >About</a
+            >
+            <a
+              href="#contact"
+              class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
+              >Contact</a
+            >
+          </div>
 
-            <div class="md:hidden flex items-center">
-                <button id="mobileMenuBtn" class="text-gray-700 hover:text-blue-600 focus:outline-none p-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobileMenuBtn"
+              class="text-gray-700 hover:text-blue-600 focus:outline-none p-2"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-gray-200 shadow-xl absolute w-full left-0 top-16">
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-white border-b border-gray-200 shadow-xl absolute w-full left-0 top-16"
+      >
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#home" class="mobile-link block px-3 py-4 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 border-b border-gray-100">Home</a>
-            <a href="#features" class="mobile-link block px-3 py-4 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 border-b border-gray-100">Features</a>
-            <a href="#verify" class="mobile-link block px-3 py-4 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 border-b border-gray-100">Verify</a>
-            <a href="#about" class="mobile-link block px-3 py-4 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 border-b border-gray-100">About</a>
-            <a href="#contact" class="mobile-link block px-3 py-4 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Contact</a>
+          <a
+            href="#home"
+            class="mobile-link block px-3 py-4 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 border-b border-gray-100"
+            >Home</a
+          >
+          <a
+            href="#features"
+            class="mobile-link block px-3 py-4 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 border-b border-gray-100"
+            >Features</a
+          >
+          <a
+            href="#verify"
+            class="mobile-link block px-3 py-4 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 border-b border-gray-100"
+            >Verify</a
+          >
+          <a
+            href="#about"
+            class="mobile-link block px-3 py-4 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 border-b border-gray-100"
+            >About</a
+          >
+          <a
+            href="#contact"
+            class="mobile-link block px-3 py-4 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+            >Contact</a
+          >
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
 
-    <section id="home" class="relative min-h-screen flex items-center pt-20 pb-32 overflow-hidden bg-slate-900">
-    
-    <div class="absolute inset-0 z-0 pointer-events-none">
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-950 via-slate-900 to-purple-950"></div>
-        
-        <div class="absolute inset-0" 
-             style="background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px); 
-                    background-size: 30px 30px; 
-                    opacity: 0.3;">
-        </div>
-        
-        <div class="absolute top-0 right-0 -mt-20 md:-mr-20 w-64 h-64 md:w-96 md:h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+    <section
+      id="home"
+      class="relative min-h-screen flex items-center pt-20 pb-32 overflow-hidden bg-slate-900"
+    >
+      <div class="absolute inset-0 z-0 pointer-events-none">
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-blue-950 via-slate-900 to-purple-950"
+        ></div>
 
-        <div class="absolute bottom-0 left-0 md:-ml-20 w-60 h-60 md:w-80 md:h-80 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-    </div>
+        <div
+          class="absolute inset-0"
+          style="
+            background-image: radial-gradient(
+              rgba(255, 255, 255, 0.1) 1px,
+              transparent 1px
+            );
+            background-size: 30px 30px;
+            opacity: 0.3;
+          "
+        ></div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        
-        
-        <h1 class="text-4xl md:text-7xl font-bold text-white mb-6 md:mb-8 fade-in leading-tight drop-shadow-2xl">
-            Stop Believing <br/>
-            <span class="bg-gradient-to-r from-yellow-300 to-red-400 bg-clip-text text-transparent">Everything You Read.</span>
+        <div
+          class="absolute top-0 right-0 -mt-20 md:-mr-20 w-64 h-64 md:w-96 md:h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"
+        ></div>
+
+        <div
+          class="absolute bottom-0 left-0 md:-ml-20 w-60 h-60 md:w-80 md:h-80 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"
+        ></div>
+      </div>
+
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center"
+      >
+        <h1
+          class="text-4xl md:text-7xl font-bold text-white mb-6 md:mb-8 fade-in leading-tight drop-shadow-2xl"
+        >
+          Stop Believing <br />
+          <span
+            class="bg-gradient-to-r from-yellow-300 to-red-400 bg-clip-text text-transparent"
+            >Everything You Read.</span
+          >
         </h1>
-        
-        <p class="text-lg md:text-2xl text-slate-300 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed fade-in drop-shadow-md font-medium">
-            The internet is full of deepfakes, AI hallucinations, and lies. 
-            Truth Lens is your brutal reality check. We don't sugarcoat the verdict.
+
+        <p
+          class="text-lg md:text-2xl text-slate-300 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed fade-in drop-shadow-md font-medium"
+        >
+          The internet is full of deepfakes, AI hallucinations, and lies. Truth
+          Lens is your brutal reality check. We don't sugarcoat the verdict.
         </p>
-        
-        <div class="flex flex-col sm:flex-row gap-4 md:gap-5 justify-center fade-in px-4">
-            <button id="startVerifyingBtn" class="btn-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-blue-500/50 transition-all transform hover:-translate-y-1 border border-transparent">
-                Expose the Truth
-            </button>
-            
-            <button id="learnMoreBtn" class="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 px-8 py-4 rounded-xl font-bold text-lg shadow-lg transition-all hover:border-slate-500">
-                How it Works
-            </button>
+
+        <div
+          class="flex flex-col sm:flex-row gap-4 md:gap-5 justify-center fade-in px-4"
+        >
+          <button
+            id="startVerifyingBtn"
+            class="btn-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-blue-500/50 transition-all transform hover:-translate-y-1 border border-transparent"
+          >
+            Expose the Truth
+          </button>
+
+          <button
+            id="learnMoreBtn"
+            class="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 px-8 py-4 rounded-xl font-bold text-lg shadow-lg transition-all hover:border-slate-500"
+          >
+            How it Works
+          </button>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
     <section id="features" class="section-padding bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                    Powerful Verification Features
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Our AI-powered platform provides comprehensive content analysis with industry-leading accuracy and speed.
-                </p>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Powerful Verification Features
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Our AI-powered platform provides comprehensive content analysis with
+            industry-leading accuracy and speed.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="glass-card rounded-2xl p-6 md:p-8 hover-lift border-t-4 border-blue-500"
+          >
+            <div class="mb-4 text-blue-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-10 h-10"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
+                />
+              </svg>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-    
-    <div class="glass-card rounded-2xl p-6 md:p-8 hover-lift border-t-4 border-blue-500">
-        <div class="mb-4 text-blue-600">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-            </svg>
-        </div>
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">Text Analysis</h3>
-        <p class="text-gray-600 leading-relaxed">
-            Advanced NLP algorithms analyze text for factual accuracy, bias detection, and credibility scoring with real-time fact-checking.
-        </p>
-    </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Text Analysis</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Advanced NLP algorithms analyze text for factual accuracy, bias
+              detection, and credibility scoring with real-time fact-checking.
+            </p>
+          </div>
 
-    <div class="glass-card rounded-2xl p-6 md:p-8 hover-lift border-t-4 border-purple-500">
-        <div class="mb-4 text-purple-600">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-            </svg>
-        </div>
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">Image Verification</h3>
-        <p class="text-gray-600 leading-relaxed">
-            Detect deepfakes, manipulated images, and verify authenticity using cutting-edge computer vision technology.
-        </p>
-    </div>
+          <div
+            class="glass-card rounded-2xl p-6 md:p-8 hover-lift border-t-4 border-purple-500"
+          >
+            <div class="mb-4 text-purple-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-10 h-10"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              Image Verification
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Detect deepfakes, manipulated images, and verify authenticity
+              using cutting-edge computer vision technology.
+            </p>
+          </div>
 
-    <div class="glass-card rounded-2xl p-6 md:p-8 hover-lift border-t-4 border-yellow-500">
-        <div class="mb-4 text-yellow-600">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-            </svg>
-        </div>
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">Real-time Results</h3>
-        <p class="text-gray-600 leading-relaxed">
-            Get instant verification results with detailed analysis reports and confidence scores in under 3 seconds.
-        </p>
-    </div>
+          <div
+            class="glass-card rounded-2xl p-6 md:p-8 hover-lift border-t-4 border-yellow-500"
+          >
+            <div class="mb-4 text-yellow-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-10 h-10"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              Real-time Results
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Get instant verification results with detailed analysis reports
+              and confidence scores in under 3 seconds.
+            </p>
+          </div>
 
-    <div class="glass-card rounded-2xl p-6 md:p-8 hover-lift border-t-4 border-green-500">
-        <div class="mb-4 text-green-600">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-            </svg>
-        </div>
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">Privacy First</h3>
-        <p class="text-gray-600 leading-relaxed">
-            Your content is processed securely with end-to-end encryption. We never store or share your data.
-        </p>
-    </div>
+          <div
+            class="glass-card rounded-2xl p-6 md:p-8 hover-lift border-t-4 border-green-500"
+          >
+            <div class="mb-4 text-green-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-10 h-10"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Privacy First</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Your content is processed securely with end-to-end encryption. We
+              never store or share your data.
+            </p>
+          </div>
 
-    <div class="glass-card rounded-2xl p-6 md:p-8 hover-lift border-t-4 border-indigo-500">
-        <div class="mb-4 text-indigo-600">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-            </svg>
-        </div>
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">Detailed Reports</h3>
-        <p class="text-gray-600 leading-relaxed">
-            Comprehensive analysis with source verification, confidence metrics, and actionable insights.
-        </p>
-    </div>
+          <div
+            class="glass-card rounded-2xl p-6 md:p-8 hover-lift border-t-4 border-indigo-500"
+          >
+            <div class="mb-4 text-indigo-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-10 h-10"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              Detailed Reports
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Comprehensive analysis with source verification, confidence
+              metrics, and actionable insights.
+            </p>
+          </div>
 
-    <div class="glass-card rounded-2xl p-6 md:p-8 hover-lift border-t-4 border-pink-500">
-        <div class="mb-4 text-pink-600">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S12 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S12 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-            </svg>
+          <div
+            class="glass-card rounded-2xl p-6 md:p-8 hover-lift border-t-4 border-pink-500"
+          >
+            <div class="mb-4 text-pink-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-10 h-10"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S12 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S12 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
+                />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              Multi-language
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Support for 50+ languages with cultural context awareness and
+              region-specific fact-checking.
+            </p>
+          </div>
         </div>
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">Multi-language</h3>
-        <p class="text-gray-600 leading-relaxed">
-            Support for 50+ languages with cultural context awareness and region-specific fact-checking.
-        </p>
-    </div>
-
-</div>
-        </div>
+      </div>
     </section>
 
     <section id="verify" class="section-padding bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                    Try Our Verification Tool
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Experience the power of AI-driven content verification. Upload text or images to get instant analysis.
-                </p>
-            </div>
-
-            <div class="flex justify-center mb-12">
-                <div class="bg-gray-100 rounded-2xl p-2 flex space-x-2">
-                    <button id="textTab" class="tab-button px-8 py-4 rounded-xl text-gray-700 font-semibold transition-all duration-300 bg-white shadow-sm">
-                        📝 Text Analysis
-                    </button>
-                    <button id="imageTab" class="tab-button px-8 py-4 rounded-xl text-gray-700 font-semibold transition-all duration-300">
-                        🖼️ Image Analysis
-                    </button>
-                </div>
-            </div>
-
-            <div id="textMode" class="max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="glass-card rounded-2xl p-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                            <span class="mr-3">✍️</span> Enter Text to Verify
-                        </h3>
-                        <textarea 
-                            id="textInput"
-                            placeholder="Paste your text here for AI-powered verification..."
-                            class="w-full h-40 p-4 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none resize-none transition-all duration-300"
-                        ></textarea>
-                        <div class="flex space-x-3 mt-6">
-                            <button id="checkTextBtn" class="flex-1 btn-primary text-white py-3 px-6 rounded-xl font-semibold flex items-center justify-center">
-                                <span id="textBtnText">🔍 Analyze Text</span>
-                                <div id="textSpinner" class="spinner mx-auto hidden"></div>
-                            </button>
-                            <button id="exampleTextBtn" class="bg-gray-100 text-gray-700 py-3 px-6 rounded-xl font-semibold hover:bg-gray-200 transition-all">
-                                📄 Use Example
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="glass-card rounded-2xl p-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                            <span class="mr-3">📊</span> Analysis Results
-                        </h3>
-                        <div id="textResult" class="mt-4 transition-all duration-300">
-    <div class="h-full flex flex-col items-center justify-center p-6 md:p-12 border-2 border-dashed border-gray-200 rounded-xl text-gray-400">
-    <span class="text-4xl mb-2">📊</span>
-    <p class="text-center">Analysis results will load here</p>
-</div>
-</div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="imageMode" class="max-w-4xl mx-auto hidden">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="glass-card rounded-2xl p-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                            <span class="mr-3">🖼️</span> Upload Image to Verify
-                        </h3>
-                        
-                        <div id="dropZone" class="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center transition-all duration-300 hover:border-blue-400 cursor-pointer">
-                            <div id="dropContent">
-                                <div class="text-4xl mb-4">📁</div>
-                                <p class="text-gray-600 mb-4">Drop an image here or click to browse</p>
-                                <input type="file" id="imageInput" accept="image/*" class="hidden">
-                                <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-lg transition-colors">
-                                    Choose File
-                                </button>
-                            </div>
-                            <div id="imagePreview" class="hidden">
-                                <img id="previewImg" class="max-w-full max-h-64 mx-auto rounded-lg shadow-lg">
-                                <p id="fileName" class="text-gray-700 mt-4 font-medium"></p>
-                            </div>
-                        </div>
-
-                        <div class="flex space-x-3 mt-6">
-                            <button id="checkImageBtn" class="flex-1 btn-primary text-white py-3 px-6 rounded-xl font-semibold">
-                                <span id="imageBtnText">🔍 Analyze Image</span>
-                                <div id="imageSpinner" class="spinner mx-auto hidden"></div>
-                            </button>
-                            <button id="exampleImageBtn" class="bg-gray-100 text-gray-700 py-3 px-6 rounded-xl font-semibold hover:bg-gray-200 transition-all">
-                                🎨 Use Example
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="glass-card rounded-2xl p-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                            <span class="mr-3">📊</span> Analysis Results
-                        </h3>
-                        <div id="imageResult" class="mt-4 transition-all duration-300">
-                            <div class="h-full flex flex-col items-center justify-center p-6 md:p-12 border-2 border-dashed border-gray-200 rounded-xl text-gray-400">
-    <span class="text-4xl mb-2">🖼️</span>
-    <p class="text-center">Forensic report will load here</p>
-</div>
-                       </div>
-                    </div>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Try Our Verification Tool
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Experience the power of AI-driven content verification. Upload text
+            or images to get instant analysis.
+          </p>
         </div>
+
+        <div class="flex justify-center mb-12">
+          <div class="bg-gray-100 rounded-2xl p-2 flex space-x-2">
+            <button
+              id="textTab"
+              class="tab-button px-8 py-4 rounded-xl text-gray-700 font-semibold transition-all duration-300 bg-white shadow-sm"
+            >
+              📝 Text Analysis
+            </button>
+            <button
+              id="imageTab"
+              class="tab-button px-8 py-4 rounded-xl text-gray-700 font-semibold transition-all duration-300"
+            >
+              🖼️ Image Analysis
+            </button>
+          </div>
+        </div>
+
+        <div id="textMode" class="max-w-4xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8">
+              <h3
+                class="text-2xl font-bold text-gray-900 mb-6 flex items-center"
+              >
+                <span class="mr-3">✍️</span> Enter Text to Verify
+              </h3>
+              <textarea
+                id="textInput"
+                placeholder="Paste your text here for AI-powered verification..."
+                class="w-full h-40 p-4 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none resize-none transition-all duration-300"
+              ></textarea>
+              <div class="flex space-x-3 mt-6">
+                <button
+                  id="checkTextBtn"
+                  class="flex-1 btn-primary text-white py-3 px-6 rounded-xl font-semibold flex items-center justify-center"
+                >
+                  <span id="textBtnText">🔍 Analyze Text</span>
+                  <div id="textSpinner" class="spinner mx-auto hidden"></div>
+                </button>
+                <button
+                  id="exampleTextBtn"
+                  class="bg-gray-100 text-gray-700 py-3 px-6 rounded-xl font-semibold hover:bg-gray-200 transition-all"
+                >
+                  📄 Use Example
+                </button>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8">
+              <h3
+                class="text-2xl font-bold text-gray-900 mb-6 flex items-center"
+              >
+                <span class="mr-3">📊</span> Analysis Results
+              </h3>
+              <div id="textResult" class="mt-4 transition-all duration-300">
+                <div
+                  class="h-full flex flex-col items-center justify-center p-6 md:p-12 border-2 border-dashed border-gray-200 rounded-xl text-gray-400"
+                >
+                  <span class="text-4xl mb-2">📊</span>
+                  <p class="text-center">Analysis results will load here</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="imageMode" class="max-w-4xl mx-auto hidden">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8">
+              <h3
+                class="text-2xl font-bold text-gray-900 mb-6 flex items-center"
+              >
+                <span class="mr-3">🖼️</span> Upload Image to Verify
+              </h3>
+
+              <div
+                id="dropZone"
+                class="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center transition-all duration-300 hover:border-blue-400 cursor-pointer"
+              >
+                <div id="dropContent">
+                  <div class="text-4xl mb-4">📁</div>
+                  <p class="text-gray-600 mb-4">
+                    Drop an image here or click to browse
+                  </p>
+                  <input
+                    type="file"
+                    id="imageInput"
+                    accept="image/*"
+                    class="hidden"
+                  />
+                  <button
+                    class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-lg transition-colors"
+                  >
+                    Choose File
+                  </button>
+                </div>
+                <div id="imagePreview" class="hidden">
+                  <img
+                    id="previewImg"
+                    class="max-w-full max-h-64 mx-auto rounded-lg shadow-lg"
+                  />
+                  <p id="fileName" class="text-gray-700 mt-4 font-medium"></p>
+                </div>
+              </div>
+
+              <div class="flex space-x-3 mt-6">
+                <button
+                  id="checkImageBtn"
+                  class="flex-1 btn-primary text-white py-3 px-6 rounded-xl font-semibold flex items-center justify-center"
+                >
+                  <span id="textBtnText">🔍 Analyze Image</span>
+                  <div id="textSpinner" class="spinner mx-auto hidden"></div>
+                </button>
+                <button
+                  id="exampleImageBtn"
+                  class="bg-gray-100 text-gray-700 py-3 px-6 rounded-xl font-semibold hover:bg-gray-200 transition-all"
+                >
+                  🎨 Use Example
+                </button>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8">
+              <h3
+                class="text-2xl font-bold text-gray-900 mb-6 flex items-center"
+              >
+                <span class="mr-3">📊</span> Analysis Results
+              </h3>
+              <div id="imageResult" class="mt-4 transition-all duration-300">
+                <div
+                  class="h-full flex flex-col items-center justify-center p-6 md:p-12 border-2 border-dashed border-gray-200 rounded-xl text-gray-400"
+                >
+                  <span class="text-4xl mb-2">🖼️</span>
+                  <p class="text-center">Forensic report will load here</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="about" class="section-padding bg-gray-50 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-            
-            <div>
-                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 text-center">
-                Fighting Misinformation with AI
-                </h2>
+          <div>
+            <h2
+              class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 text-center"
+            >
+              Fighting Misinformation with AI
+            </h2>
 
-                <p class="text-base md:text-lg text-gray-600 mb-6 leading-relaxed">
-                    TruthLens was founded with a mission to combat the spread of misinformation in our digital age. 
-                    Our advanced AI algorithms analyze content across multiple dimensions to provide accurate, 
-                    reliable verification results.
-                </p>
-                <p class="text-base md:text-lg text-gray-600 mb-8 leading-relaxed">
-                    Trusted by journalists, researchers, and organizations worldwide, we're committed to 
-                    promoting truth and transparency in digital content.
-                </p>
-                
-                <div class="grid grid-cols-3 gap-2 md:gap-6 mt-8">
-    
-    <div class="text-center border border-gray-200 rounded-xl p-1 md:p-4 bg-white shadow-sm hover:border-blue-400 transition-colors flex flex-col justify-center">
-        <div class="text-lg md:text-3xl font-bold text-blue-600 truncate">Advanced</div>
-        <div class="text-xs md:text-sm text-gray-600 mt-1">AI Models</div>
-    </div>
+            <p class="text-base md:text-lg text-gray-600 mb-6 leading-relaxed">
+              TruthLens was founded with a mission to combat the spread of
+              misinformation in our digital age. Our advanced AI algorithms
+              analyze content across multiple dimensions to provide accurate,
+              reliable verification results.
+            </p>
+            <p class="text-base md:text-lg text-gray-600 mb-8 leading-relaxed">
+              Trusted by journalists, researchers, and organizations worldwide,
+              we're committed to promoting truth and transparency in digital
+              content.
+            </p>
 
-    <div class="text-center border border-gray-200 rounded-xl p-1 md:p-4 bg-white shadow-sm hover:border-blue-400 transition-colors flex flex-col justify-center">
-        <div class="text-lg md:text-3xl font-bold text-blue-600 truncate">Real-time</div>
-        <div class="text-xs md:text-sm text-gray-600 mt-1">Analysis</div>
-    </div>
-
-    <div class="text-center border border-gray-200 rounded-xl p-1 md:p-4 bg-white shadow-sm hover:border-blue-400 transition-colors flex flex-col justify-center">
-        <div class="text-lg md:text-3xl font-bold text-blue-600 truncate">Secure</div>
-        <div class="text-xs md:text-sm text-gray-600 mt-1">Processing</div>
-    </div>
-
-</div>
-            </div>
-
-            <div class="relative mt-8 md:mt-0">
-                <div class="bg-gradient-to-br from-blue-600 to-purple-700 rounded-2xl p-6 md:p-10 text-white shadow-xl transform transition-transform hover:scale-[1.02]">
-                    <h3 class="text-2xl font-bold mb-6 border-b border-white/20 pb-4">Why Choose TruthLens?</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1 text-green-300 font-bold">✓</span>
-                            <span class="text-blue-50">Industry-leading accuracy</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1 text-green-300 font-bold">✓</span>
-                            <span class="text-blue-50">Real-time verification</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1 text-green-300 font-bold">✓</span>
-                            <span class="text-blue-50">Privacy-first approach</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1 text-green-300 font-bold">✓</span>
-                            <span class="text-blue-50">Multi-language support</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1 text-green-300 font-bold">✓</span>
-                            <span class="text-blue-50">Comprehensive reporting</span>
-                        </li>
-                    </ul>
+            <div class="grid grid-cols-3 gap-2 md:gap-6 mt-8">
+              <div
+                class="text-center border border-gray-200 rounded-xl p-1 md:p-4 bg-white shadow-sm hover:border-blue-400 transition-colors flex flex-col justify-center"
+              >
+                <div
+                  class="text-lg md:text-3xl font-bold text-blue-600 truncate"
+                >
+                  Advanced
                 </div>
-                
-                <div class="absolute -top-4 -right-4 w-24 h-24 bg-yellow-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob -z-10"></div>
-                <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000 -z-10"></div>
+                <div class="text-xs md:text-sm text-gray-600 mt-1">
+                  AI Models
+                </div>
+              </div>
+
+              <div
+                class="text-center border border-gray-200 rounded-xl p-1 md:p-4 bg-white shadow-sm hover:border-blue-400 transition-colors flex flex-col justify-center"
+              >
+                <div
+                  class="text-lg md:text-3xl font-bold text-blue-600 truncate"
+                >
+                  Real-time
+                </div>
+                <div class="text-xs md:text-sm text-gray-600 mt-1">
+                  Analysis
+                </div>
+              </div>
+
+              <div
+                class="text-center border border-gray-200 rounded-xl p-1 md:p-4 bg-white shadow-sm hover:border-blue-400 transition-colors flex flex-col justify-center"
+              >
+                <div
+                  class="text-lg md:text-3xl font-bold text-blue-600 truncate"
+                >
+                  Secure
+                </div>
+                <div class="text-xs md:text-sm text-gray-600 mt-1">
+                  Processing
+                </div>
+              </div>
             </div>
+          </div>
+
+          <div class="relative mt-8 md:mt-0">
+            <div
+              class="bg-gradient-to-br from-blue-600 to-purple-700 rounded-2xl p-6 md:p-10 text-white shadow-xl transform transition-transform hover:scale-[1.02]"
+            >
+              <h3 class="text-2xl font-bold mb-6 border-b border-white/20 pb-4">
+                Why Choose TruthLens?
+              </h3>
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <span class="mr-3 mt-1 text-green-300 font-bold">✓</span>
+                  <span class="text-blue-50">Industry-leading accuracy</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="mr-3 mt-1 text-green-300 font-bold">✓</span>
+                  <span class="text-blue-50">Real-time verification</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="mr-3 mt-1 text-green-300 font-bold">✓</span>
+                  <span class="text-blue-50">Privacy-first approach</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="mr-3 mt-1 text-green-300 font-bold">✓</span>
+                  <span class="text-blue-50">Multi-language support</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="mr-3 mt-1 text-green-300 font-bold">✓</span>
+                  <span class="text-blue-50">Comprehensive reporting</span>
+                </li>
+              </ul>
+            </div>
+
+            <div
+              class="absolute -top-4 -right-4 w-24 h-24 bg-yellow-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob -z-10"
+            ></div>
+            <div
+              class="absolute -bottom-4 -left-4 w-24 h-24 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000 -z-10"
+            ></div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
     <section id="contact" class="section-padding bg-white pb-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                Get in Touch
-            </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                Have questions about our verification technology? Want to integrate TruthLens into your platform? We'd love to hear from you.
-            </p>
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Get in Touch
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Have questions about our verification technology? Want to integrate
+            TruthLens into your platform? We'd love to hear from you.
+          </p>
         </div>
-        
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div class="text-center group hover:-translate-y-1 transition-transform duration-300">
-                <div class="bg-blue-50 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-100 transition-colors">
-                    <span class="text-3xl">📧</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Email Us</h3>
-                <a href="mailto:riteshshastri2006@gmail.com" class="text-gray-600 hover:text-blue-600 transition-colors">riteshshastri2006@gmail.com</a>
-            </div>
-            
-            <div class="text-center group hover:-translate-y-1 transition-transform duration-300">
-                <div class="bg-pink-50 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-pink-100 transition-colors">
-                    <span class="text-3xl">❤️</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Made with Love</h3>
-                <p class="text-gray-600">By Ritesh Shastri</p>
-            </div>
-        </div>
-    </div>
-</section>
 
-<footer class="bg-gray-50 border-t border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="text-center text-gray-400 text-sm">
-            <p>&copy; 2025 TruthLens. All rights reserved. Fighting misinformation with AI.</p>
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div
+            class="text-center group hover:-translate-y-1 transition-transform duration-300"
+          >
+            <div
+              class="bg-blue-50 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-100 transition-colors"
+            >
+              <span class="text-3xl">📧</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Email Us</h3>
+            <a
+              href="mailto:riteshshastri2006@gmail.com"
+              class="text-gray-600 hover:text-blue-600 transition-colors"
+              >riteshshastri2006@gmail.com</a
+            >
+          </div>
+
+          <div
+            class="text-center group hover:-translate-y-1 transition-transform duration-300"
+          >
+            <div
+              class="bg-pink-50 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-pink-100 transition-colors"
+            >
+              <span class="text-3xl">❤️</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Made with Love</h3>
+            <p class="text-gray-600">By Ritesh Shastri</p>
+          </div>
         </div>
-    </div>
-</footer>
-    
+      </div>
+    </section>
+
+    <footer class="bg-gray-50 border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="text-center text-gray-400 text-sm">
+          <p>
+            &copy; 2025 TruthLens. All rights reserved. Fighting misinformation
+            with AI.
+          </p>
+        </div>
+      </div>
+    </footer>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
