@@ -67,13 +67,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to handle text verification
     // Function to handle text verification
-    async function handleCheckText() {
-        if (loading) return;
-        const text = textInputEl.value.trim();
-        if (!text) {
-            alert('Please enter some text to analyze!');
-            return;
-        }
+   const CHECK_TEXT_ENABLED = false;
+
+async function handleCheckText() {
+    if (!CHECK_TEXT_ENABLED) {
+        alert('This feature is temporarily disabled.');
+        return;
+    }
+
+    if (loading) return;
+
+    const text = textInputEl.value.trim();
+    if (!text) {
+        alert('Please enter some text to analyze!');
+        return;
+    }
 
         setLoading(true, 'text');
         textResult.innerHTML = '<div class="text-center text-gray-500 py-8"><div class="spinner mx-auto"></div><p class="mt-2">Fact-checking against global knowledge base...</p></div>';
