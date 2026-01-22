@@ -160,20 +160,13 @@ async function handleCheckText() {
         }
     }
     // Function to handle image verification
-const CHECK_IMAGE_ENABLED = false;
-
-async function handleCheckImage() {
-    if (!CHECK_IMAGE_ENABLED) {
-        alert('This feature is temporarily disabled.');
-        return;
-    }
-
-    if (loading) return;
-
-    const imageFile = document.getElementById('imageInput').files[0];
-    if (!imageFile) {
-        alert('Please select an image to analyze!');
-        return;
+async function handleCheckImage() {  
+    if (loading) return;  
+    const imageFile = document.getElementById('imageInput').files[0];  
+      
+    if (!imageFile) {  
+        alert('Please select an image to analyze!');  
+        return;  
     }
 
     // rest of your image logic
