@@ -1,3 +1,4 @@
+/*
 const express = require('express');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const router = express.Router();
@@ -52,3 +53,4 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = router;
+*/
